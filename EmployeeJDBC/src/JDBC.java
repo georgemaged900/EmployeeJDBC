@@ -15,12 +15,11 @@ public class JDBC {
 
         Scanner scanner = new Scanner(System.in);
 
-        while (ans!="N") {
+        while (ans.equals('y')) {
             System.out.println("Choose (I) to insert record in database");
             System.out.println("Choose (D) to delete record in database");
             System.out.println("Choose (S) to query database");
-
-
+            
             Scanner scannerChoice = new Scanner(System.in);
             choice = scannerChoice.nextLine();
 
@@ -38,14 +37,16 @@ public class JDBC {
                         System.out.println(resultSelect.getInt(1) + " " + resultSelect.getString(2) + " " + resultSelect.getString(3));
 
                 }
-                if (choice.equals("I")) {
+                else if (choice.equals("I")) {
 
-                    System.out.println("Type employee id then name then age to insert in database");
                     Scanner columnIDScanner = new Scanner(System.in);
                     Scanner columnNameScanner = new Scanner(System.in);
                     Scanner columnAgeScanner = new Scanner(System.in);
+                    System.out.println("Enter ID :");
                     int id = columnIDScanner.nextInt();
+                    System.out.println("Enter name :");
                     String name = columnNameScanner.nextLine();
+                    System.out.println("Enter age : ");
                     int age = columnAgeScanner.nextInt();
                     String insert = "insert into emp values('" + id + "', '" + name + "'," + age + ")";
 
@@ -72,8 +73,6 @@ public class JDBC {
 
             System.out.println("Continue ? (Y) or (N)");
             ans = scanner.nextLine();
-            if (ans.equals("N"))
-                break;
         }
     }
 }
